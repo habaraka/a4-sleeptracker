@@ -1,0 +1,47 @@
+.mode-selector {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.mode-card {
+  flex: 1;
+  min-width: 0;
+  min-height: 46px;
+  padding: 10px 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  text-align: center;
+  border: 2px solid #444;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #242424;
+
+  font-family: var(--ion-font-family);
+  font-size: 14px;
+  font-weight: 500;
+
+  h3 {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: 1.2;
+  }
+}
+.mode-card.active {
+  border-color: #508cff;
+  background: #243450;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 16px;
+  text-align: center;
+}

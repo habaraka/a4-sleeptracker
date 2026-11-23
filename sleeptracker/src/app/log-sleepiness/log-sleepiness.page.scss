@@ -1,0 +1,40 @@
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+
+  width: 85%;
+  max-width: 300px;
+  margin: -5px auto 20px;
+
+  padding: 0 12px;
+
+  span {
+    font-size: 11px;
+    color: var(--ion-color-medium);
+    text-align: center;
+  }
+}
+ion-range {
+  width: 85%;
+  max-width: 300px;
+  margin: 12px auto;
+  display: block;
+
+  &::part(tick-label) {
+    font-size: 11px;
+  }
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2, ion-button {
+  font-size: 18px;
+  padding-left: 12px;
+}
+
+.info-button {
+  margin-left: 12px;
+}

@@ -1,0 +1,73 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Log Sleep & Wake Up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  @if (alreadyLogged) {
+
+    <div class="already-logged-message">
+      <h2>🌙 Sleep Saved!</h2>
+      <p>
+        You've logged your sleep for today.
+        You can edit it from the History tab.
+      </p>
+    </div>
+
+  } @else {
+
+    <!-- Bedtime -->
+    <h2>🌙 Log Your Sleep</h2>
+
+    <p>What time did you go to sleep?</p>
+
+    <ion-datetime
+      presentation="time"
+      [preferWheel]="true"
+      hourCycle="h12"
+      [minuteValues]="[0,5,10,15,20,25,30,35,40,45,50,55]"
+      (ionChange)="onSleepTimeChange($event)">
+    </ion-datetime>
+
+    <!-- Wake-up time -->
+    <h2>☀️ Wake-Up Time</h2>
+
+    <p>What time did you wake up?</p>
+
+    <ion-datetime
+      presentation="time"
+      [preferWheel]="true"
+      hourCycle="h12"
+      [minuteValues]="[0,5,10,15,20,25,30,35,40,45,50,55]"
+      (ionChange)="onWakeTimeChange($event)">
+    </ion-datetime>
+
+    <!-- Save button -->
+    <ion-button
+      expand="block"
+      [disabled]="isSaving"
+      (click)="saveSleep()">
+      Save Sleep
+    </ion-button>
+
+  }
+
+  <!-- Success message -->
+  @if (saved && !alreadyLogged) {
+    <div class="goodnight-message">
+      <h2>Sleep Saved! 🌙</h2>
+      <p>Your sleep has been added to History.</p>
+    </div>
+  }
+
+  <!-- Error messages -->
+  @if (errorMessage) {
+    <p class="error-message">
+      {{ errorMessage }}
+    </p>
+  }
+
+</ion-content>

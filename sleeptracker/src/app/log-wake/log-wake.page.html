@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Log Wake Up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h2>Good Morning! ☀️</h2>
+  <p>What time did you wake up?</p>
+
+  <ion-datetime
+    presentation="time"
+    [preferWheel]="true"
+    hourCycle="h12"
+    [minuteValues]="[0,5,10,15,20,25,30,35,40,45,50,55]"
+    (ionChange)="onWakeTimeChange($event)">
+  </ion-datetime>
+
+  <ion-button (click)="saveWakeUptime()">
+    Save Wake-Up Time
+  </ion-button>
+  @if (errorMessage) {
+    <p class="error-message">
+      {{ errorMessage }}
+    </p>
+  }
+
+</ion-content>

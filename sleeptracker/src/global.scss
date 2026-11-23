@@ -35,3 +35,14 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+ /* Starry-night background across all pages */
+
+ion-content {
+  --background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url('/assets/starry-night.gif')
+      center center / cover no-repeat;
+}

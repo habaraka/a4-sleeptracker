@@ -1,2 +1,22 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+
+:root {
+  /* Main app colors */
+  --ion-color-primary: #4d8dff;
+  --ion-color-primary-rgb: 77, 141, 255;
+  --ion-color-primary-contrast: #000000;
+  --ion-color-primary-contrast-rgb: 0, 0, 0;
+  --ion-color-primary-shade: #447ce0;
+  --ion-color-primary-tint: #5f98ff;
+
+  /* Dark night theme */
+  --ion-background-color: #080810;
+  --ion-text-color: #ffffff;
+
+  /* Ionic components */
+  --ion-toolbar-background: #101018;
+  --ion-tab-bar-background: #101018;
+  --ion-tab-bar-color: #999999;
+  --ion-tab-bar-color-selected: #4d8dff;
+}

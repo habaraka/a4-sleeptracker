@@ -1,0 +1,162 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sleep Journal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="calendar-container">
+    <h2>Select a Date</h2>
+
+    <ion-datetime
+      presentation="date"
+      [value]="selectedDate"
+      [highlightedDates]="highlightedDates"
+      (ionChange)="onDateChange($event)">
+    </ion-datetime>
+  </div>
+
+  <h2 class="selected-date">
+    {{ formattedSelectedDate }}
+  </h2>
+
+  <div class="history-section">
+
+    <h2>🌙 Overnight Sleep</h2>
+
+    @if (selectedOvernightRecords.length === 0) {
+      <p class="empty-message">
+        No overnight sleep records for this date.
+      </p>
+    }
+
+    @for (record of selectedOvernightRecords; track record.id) {
+      <div class="record-card sleep-card">
+
+        <h3>{{ record.summaryString() }}</h3>
+
+        <p>
+          Bedtime:
+          {{ formatTime(record.sleepStart) }}
+        </p>
+
+        <p>
+          Wake-up:
+          {{ formatTime(record.sleepEnd) }}
+        </p>
+        <ion-button
+          color="primary"
+          fill="outline"
+          size="small"
+          (click)="editOvernightRecord(record.id)">
+          Edit
+        </ion-button>
+        <ion-button
+          color="danger"
+          fill="outline"
+          size="small"
+          (click)="deleteRecord(record.id)">
+          Delete
+      </ion-button>
+
+
+      </div>
+    }
+
+  </div>
+
+  <div class="history-section">
+
+    <h2>☀️ Daytime Sleepiness</h2>
+
+    @if (selectedSleepinessRecords.length === 0) {
+      <p class="empty-message">
+        No sleepiness records for this date.
+      </p>
+    }
+
+    @for (record of selectedSleepinessRecords; track record.id) {
+      <div class="record-card sleepiness-card">
+
+        <div class="sleepiness-header">
+          <h3>{{ formatTime(record.loggedAt) }}</h3>
+          <span class="sleepiness-level">
+            {{ record.loggedValue }} / 7
+          </span>
+        </div>
+
+        <p>{{ record.summaryString() }}</p>
+        <ion-button
+          color="primary"
+          fill="outline"
+          size="small"
+          (click)="editSleepinessRecord(record.id, record.loggedValue)">
+          Edit
+        </ion-button>
+
+        <ion-button
+          color="danger"
+          fill="outline"
+          size="small"
+          (click)="deleteRecord(record.id)">
+          Delete
+        </ion-button>
+      </div>
+    }
+
+  </div>
+  <ion-modal
+    [isOpen]="isEditSleepModalOpen"
+    (didDismiss)="isEditSleepModalOpen = false">
+
+    <ng-template>
+
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Edit Overnight Sleep</ion-title>
+
+          <ion-buttons slot="end">
+            <ion-button (click)="isEditSleepModalOpen = false">
+              Cancel
+            </ion-button>
+          </ion-buttons>
+
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="ion-padding">
+
+        <h2>🌙 Bedtime</h2>
+
+        <ion-datetime
+          presentation="time"
+          [preferWheel]="true"
+          hourCycle="h12"
+          [minuteValues]="[0,5,10,15,20,25,30,35,40,45,50,55]"
+          [value]="editBedtime"
+          (ionChange)="onEditBedtimeChange($event)">
+        </ion-datetime>
+
+        <h2>☀️ Wake-up Time</h2>
+
+        <ion-datetime
+          presentation="time"
+          [preferWheel]="true"
+          hourCycle="h12"
+          [minuteValues]="[0,5,10,15,20,25,30,35,40,45,50,55]"
+          [value]="editWakeUp"
+          (ionChange)="onEditWakeUpChange($event)">
+        </ion-datetime>
+
+        <ion-button expand="block" (click)="saveEditedSleep()">
+          Save Changes
+        </ion-button>
+
+      </ion-content>
+
+    </ng-template>
+
+  </ion-modal>
+</ion-content>

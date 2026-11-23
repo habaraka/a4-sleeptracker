@@ -1,0 +1,32 @@
+
+.already-logged-message {
+  text-align: center;
+  margin-top: 60px;
+  padding: 24px;
+
+  background: #243450;
+  border: 1px solid #508cff;
+  border-radius: 16px;
+
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #ffffff;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #d0d8e8;
+    margin: 0;
+  }
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 16px;
+  text-align: center;
+}

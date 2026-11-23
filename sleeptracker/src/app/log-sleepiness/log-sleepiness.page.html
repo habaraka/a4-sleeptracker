@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>log-sleepiness</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">log-sleepiness</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <h2>How sleepy are you feeling?</h2>
+
+  <ion-range
+    [min]="1"
+    [max]="7"
+    [step]="1"
+    [snaps]="true"
+    [ticks]="true"
+    (ionChange)="onSleepinessChange($event)">
+  </ion-range>
+
+  <div class="range-labels">
+    @for (number of [1, 2, 3, 4, 5, 6, 7]; track number) {
+      <span>{{ number }}</span>
+    }
+  </div>
+
+  <ion-button (click)="saveSleepinessChange()">
+    Save Sleepiness
+  </ion-button>
+  <div class="scale-info">
+    <p (click)="toggleScaleInfo()" class="info-button">
+      ⓘ What do these numbers mean?
+    </p>
+
+    @if (showScaleInfo) {
+      <div class="scale-description">
+        <p><strong>1:</strong> Feeling active, vital, alert, or wide awake</p>
+        <p><strong>2:</strong> Functioning at high levels, but not at peak; able to concentrate</p>
+        <p><strong>3:</strong> Awake, but relaxed; responsive but not fully alert</p>
+        <p><strong>4:</strong> Somewhat foggy, let down</p>
+        <p><strong>5:</strong> Foggy; losing interest in remaining awake; slowed down</p>
+        <p><strong>6:</strong> Sleepy, woozy, fighting sleep; prefer to lie down</p>
+        <p><strong>7:</strong> No longer fighting sleep, sleep onset soon; having dream-like thoughts</p>
+      </div>
+    }
+  </div>
+</ion-content>
