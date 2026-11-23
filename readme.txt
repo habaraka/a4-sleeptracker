@@ -13,7 +13,7 @@ Working SOLO but joined group: A4 24
 - 1/1 A readme and demo video which explains how these features were implemented and their design rationale
 
 2. How long, in hours, did it take you to complete this assignment?
-About 18 hours
+About 20 hours
 
 
 
@@ -46,6 +46,10 @@ Prompt 6: "How can I check whether my app follows the four principles of good mo
   
     How it helped: Helped me evaluate my app's navigation, error prevention, editing and deleting functionality, and use of Ionic components.
 
+Prompt 7: "When the user clicks Save Sleepiness, no feedback appears. How can I add a 'Sleepiness saved!' notification that disappears after three seconds?"
+
+    How it helped: Helped me understand how to use Ionic's ToastController to provide feedback after saving data and how to adjust the notification's position to avoid covering the bottom navigation bar.
+
 
 
 
@@ -74,8 +78,7 @@ The user logs their overnight sleep after waking up by first selecting when they
 
 
 9. How can a person log sleepiness during the day in your app? Why did you choose to support logging sleepiness in this way?
-The user simply accesses the Sleepiness tab and drags the slider to select the number that best describes how they feel, with the option to expand an information section explaining what each number on the scale means. I chose this method because it looks clean and straightforward; instead of always displaying the descriptions, which may not be visually appealing, users can choose to show or hide them once they become familiar with the scale.
-
+The user simply accesses the Sleepiness tab and drags the slider to select the number that best describes how they feel, with the option to expand an information section explaining what each number on the scale means. I chose this method because it looks clean and straightforward, allowing users to hide the descriptions once they become familiar with the scale, while a confirmation message appears for one second after saving to let them know their data was recorded successfully.
 
 10. How can a person view the data they logged in your app? Why did you choose to support viewing logged data in this way?
 The user can access the History tab, which includes a calendar with dates containing logged data marked in blue and the current date highlighted in blue with black text; each selected date displays the overnight sleep and daytime sleepiness records logged for that day, along with their corresponding times. I chose this implementation because it makes it easy to identify which day the user is viewing and distinguish between overnight sleep and sleepiness records throughout the day.
@@ -94,4 +97,4 @@ WASN'T IMPLEMENTED
 The data is stored locally on the user's device or browser using Capacitor Preferences, allowing previously logged records to remain available after the app is refreshed or reopened.
 
 14. How does your app implement or follow principles of good mobile design?
-My app follows the four main principles of good mobile design by providing a useful initial view with simple tab navigation, allowing users to edit or delete incorrect records, and preventing errors through input validation, duplicate sleep-log prevention, and delete confirmation. I also followed platform conventions by using Ionic components such as time pickers, sliders, buttons, and bottom navigation tabs, while maintaining a consistent nighttime theme throughout the app.
+My app follows the four main principles of good mobile design by providing a useful initial view with simple tab navigation, allowing users to edit or delete incorrect records, and preventing errors through input validation, duplicate sleep-log prevention, and delete confirmation. I also followed platform conventions by using Ionic components such as time pickers, sliders, buttons, bottom navigation tabs, and a toast notification that confirms when sleepiness is saved, while maintaining a consistent nighttime theme throughout the app.
